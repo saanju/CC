@@ -1,7 +1,8 @@
 pipeline {
     agent any
-     tools {
-           dockerTool  'Docker' // Use the Docker tool configured in Jenkins
+
+    tools {
+        dockerTool 'Docker' // Use the Docker tool configured in Jenkins
     }
 
     environment {
@@ -9,8 +10,6 @@ pipeline {
     }
 
     stages {
-        
-    }
         stage('Build') {
             steps {
                 script {
