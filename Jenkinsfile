@@ -13,7 +13,9 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.build("-f user-service/Dockerfile -t ${DOCKER_IMAGE} .")
+                     dir('user-service') {
+                        docker.build DOCKER_IMAGE
+                    }
                 }
             }
         }
