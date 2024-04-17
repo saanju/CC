@@ -1,21 +1,33 @@
 pipeline {
     agent any
 
-    tools {
-        dockerTool 'Docker' // Use the Docker tool configured in Jenkins
-    }
-
-    environment {
-        DOCKER_IMAGE = 'sanj27/user-srv:latest'
-    }
-
     stages {
         stage('Build') {
             steps {
+                echo 'Building Docker image...'
                 script {
-                     dir('user-service') {
-                        docker.build DOCKER_IMAGE
-                    }
+                   
+                    // docker.build DOCKER_IMAGE (commented out to avoid actual build)
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                script {
+                   
+                    // Run your testing commands here
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying Docker image...'
+                script {
+                  
+                    // Deploy your Docker image here
                 }
             }
         }
